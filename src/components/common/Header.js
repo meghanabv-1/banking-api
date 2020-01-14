@@ -12,6 +12,10 @@ const Header = () => {
       <NavLink to="/register" activeStyle={activeStyle} exact>
         Register
       </NavLink>
+      {" | "}
+      <NavLink to="/collections" activeStyle={activeStyle} exact>
+        Collections
+      </NavLink>
     </nav>
   );
 };
