@@ -25,14 +25,14 @@ export function ManageCollectionPage({
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (collections.length === 0) {
+    if (props.id && collections.length === 0) {
       loadCollections().catch(error => {
         console.log("Loading collections failed" + error);
       });
     } else {
       setCollection({ ...props.collection });
     }
-  }, [props.collection, collections.length, loadCollections]);
+  }, [props.collection, collections.length, loadCollections, props.id]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -69,7 +69,7 @@ export function ManageCollectionPage({
       });
   }
 
-  return collections.length === 0 ? (
+  return props.id && collections.length === 0 ? (
     <Spinner />
   ) : (
     <CollectionForm
@@ -101,6 +101,7 @@ function mapStateToProps(state, ownProps) {
       ? getCollectionBySlug(state.collections, Number(id))
       : newCollection;
   return {
+    id,
     collection,
     collections: state.collections,
   };
