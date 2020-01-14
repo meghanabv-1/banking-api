@@ -8,7 +8,6 @@ const CollectionList = ({ collections, onDeleteClick }) => (
       <tr>
         <th />
         <th>Title</th>
-        <th>Author</th>
         <th>Category</th>
         <th />
       </tr>
@@ -26,9 +25,8 @@ const CollectionList = ({ collections, onDeleteClick }) => (
               </a>
             </td>
             <td>
-              <Link to={"/collection/" + collection.slug}>{collection.title}</Link>
+              <Link to={"/collection/" + collection.id}>{collection.title}</Link>
             </td>
-            <td>{collection.authorName}</td>
             <td>{collection.category}</td>
             <td>
               <button

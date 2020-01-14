@@ -4,13 +4,13 @@ import { handleResponse, handleError } from "./apiUtils";
 import { API_BASE_URL } from './configure';
 
 export function getCollections() {
-  return axios.get(API_BASE_URL)
+  return axios.get(API_BASE_URL+"collections")
     .then(handleResponse)
     .catch(handleError);
 }
 
 export function saveCollection(collection) {
-  return axios(API_BASE_URL + (collection.id || ""), {
+  return axios(`${API_BASE_URL}collections/` + (collection.id || ""), {
     method: collection.id ? "PUT" : "POST",
     config: { headers: {'Content-Type': 'application/json' }},
     data: collection,
@@ -20,7 +20,7 @@ export function saveCollection(collection) {
 }
 
 export function deleteCollection(collectionId) {
-  return axios.delete(API_BASE_URL + collectionId)
+  return axios.delete(`${API_BASE_URL}collections/` + collectionId)
     .then(handleResponse)
     .catch(handleError);
 }

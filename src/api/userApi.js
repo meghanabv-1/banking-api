@@ -10,7 +10,7 @@ import { API_BASE_URL } from './configure';
 // }
 
 export function registerUser(user) {
-  return axios(API_BASE_URL+'/register', {
+  return axios(API_BASE_URL+'register', {
     method: "GET",
     config: { headers: {'Content-Type': 'application/json' }},
     data: user,

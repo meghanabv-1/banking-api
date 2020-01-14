@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-// import * as authorActions from '../../redux/actions/authorActions';
 // import { bindActionCreators } from "redux";
 
 import Spinner from "../common/Spinner";
@@ -88,7 +87,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      // loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
     }
   };
 }
